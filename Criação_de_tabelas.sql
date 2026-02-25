@@ -91,3 +91,5 @@ CREATE TABLE relatorios (
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
+
+#--------------------------------------------------------------
