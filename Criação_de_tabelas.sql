@@ -1,3 +1,5 @@
+use base_de_dados_médica;
+
 #__________Utilizadores__________
 
 CREATE TABLE utilizadores (
@@ -44,14 +46,12 @@ CREATE TABLE consultas (
     CONSTRAINT fk_consulta_utilizador
         FOREIGN KEY (id_utilizador)
         REFERENCES utilizadores(id_utilizador)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
+        ON DELETE CASCADE,
 
     CONSTRAINT fk_consulta_medico
         FOREIGN KEY (id_medico)
         REFERENCES medicos(id_medico)
         ON DELETE CASCADE
-        ON UPDATE CASCADE
 );
 
 #--------------------------------------------------------------
@@ -61,7 +61,7 @@ CREATE TABLE consultas (
 CREATE TABLE notificacoes (
     id_notificacao INT NOT NULL AUTO_INCREMENT,
     id_utilizador INT NOT NULL,
-    conteudo VARCHAR(255),
+    mensagem VARCHAR(255),
     data_notificacao DATE,
     
     PRIMARY KEY (id_notificacao),
@@ -70,7 +70,6 @@ CREATE TABLE notificacoes (
         FOREIGN KEY (id_utilizador)
         REFERENCES utilizadores(id_utilizador)
         ON DELETE CASCADE
-        ON UPDATE CASCADE
 );
 
 #--------------------------------------------------------------
@@ -89,7 +88,6 @@ CREATE TABLE relatorios (
         FOREIGN KEY (id_consulta)
         REFERENCES consultas(id_consulta)
         ON DELETE CASCADE
-        ON UPDATE CASCADE
 );
 
 #--------------------------------------------------------------
